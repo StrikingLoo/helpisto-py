@@ -14,11 +14,16 @@ def validate_user(update):
 def log_handler(update, context):
     """ Get the userId + firstname + get/store results"""
     chat_id = update.message.chat_id
+    with open('notes.txt', 'a') as f:
+        f.write('\n'+update.message.text)
+
     context.bot.send_message(chat_id=chat_id, text=f"{update.message.text} \n---\nLOGGED -- OK")
 
 def weight_handler(update, context):
     """ Get the userId + firstname + get/store results"""
     chat_id = update.message.chat_id
+    with open('weights.txt', 'a') as f:
+        f.write('\n'+update.message.text)
     context.bot.send_message(chat_id=chat_id, text=f"{update.message.text} \n---\nLOGGED WEIGHT -- OK")
 
 def fallback_handler(update, context):
